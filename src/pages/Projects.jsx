@@ -7,7 +7,7 @@ export default function Projects() {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-// useEffect must be called inside of Projects component
+    // useEffect must be called inside of Projects component
     useEffect(() => {
 
         async function getRepositories() {
@@ -37,12 +37,23 @@ export default function Projects() {
     if (error) {//display error
         return <p>{error}</p>
     }
-
+    const featuredProjects = [
+        "jokes-app2025", 
+        "christmas-app2025", 
+        "typing-speed-app2025", 
+        "the-dynamic-task-manager", 
+        "the-digital-timekeeper", "mooncycle-ritual-garden-co-v2", "mooncycle-ritual-garden-co", 
+        "rps-mirror-of-fate-game"
+    ]; 
+    const filteredProjects = data.filter((repositories) => featuredProjects.includes(repositories.name));
     return (
         <>
             <h1>Projects</h1>
             {/* <ProjectCard /> */}
-            {data.map((repositories) => (
+            {/* {data.map((repositories) => (
+                <p key={repositories.id}>{repositories.name}</p>
+            ))} */}
+            {filteredProjects.map((repositories) => (
                 <p key={repositories.id}>{repositories.name}</p>
             ))}
         </>
