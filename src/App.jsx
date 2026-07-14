@@ -1,3 +1,5 @@
+// import useState
+import { useState } from "react";
 // import router
 import { Routes, Route } from "react-router-dom";
 // import components
@@ -10,12 +12,27 @@ import Projects from './pages/Projects'
 import Contact from './pages/Contact'
 // import css
 import './App.css'
-//
+
 export default function App() {
-// 
+  // this variable is used to toggle between light and dark mode.
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // create a function to toggle between light and dark mode
+  const handleToggleMode = () => {
+    // this pattern is used because it will always use the latest state value, without causing any closure issues.
+    setIsDarkMode((previousTheme) => !previousTheme);
+  };
+
   return (
     <>
-      <Navigation />
+      {/* every child component will inherit the mode */}
+      <div className={isDarkMode ? "dark" : "light"}>
+        <Navigation
+          // tells Navigation the current theme
+          isDarkMode={isDarkMode}
+          // gives Navigation permission to change the theme
+          onToggleMode={handleToggleMode}
+        />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
@@ -23,6 +40,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
+      </div>
     </>
   )
 }
