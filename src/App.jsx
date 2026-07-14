@@ -2,6 +2,7 @@
 import { Routes, Route } from "react-router-dom";
 // import components
 import Navigation from "./components/Navigation"
+import Footer from "./components/Footer"
 // import pages
 import Home from './pages/Home'
 import Experience from './pages/Experience'
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/experience" element={<Experience />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        <Footer />
     </>
   )
 }
