@@ -1,5 +1,6 @@
 import useFetch from "../hooks/useFetch";//custom hook to fetch data
 import ProjectCard from "../components/ProjectCard";
+import projectMedia from "../data/projectMedia";//importing media data for projects
 
 export default function Projects() {
     const { data, isLoading, error } = useFetch("https://api.github.com/users/IamLaTorya/repos");
@@ -25,7 +26,12 @@ export default function Projects() {
             {filteredProjects.map((repository) => (
                 <ProjectCard 
                 key={repository.id} 
-                repository={repository} />
+                repository={repository}
+                name={repository.name}
+                description={repository.description}
+                language={repository.language}
+                thumbnail={projectMedia[repository.name]?.thumbnail}
+                />
             ))}
         </>
     )

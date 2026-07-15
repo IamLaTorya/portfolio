@@ -1,23 +1,37 @@
-import { Link } from 'react-router-dom';
-export default function ProjectCard({ repository }) {
+import { Link } from "react-router-dom";
+
+export default function ProjectCard({
+    repository,
+    thumbnail,
+}) {
+
     return (
         <article className="project-card">
-            <h3>{repository.name}</h3>
-            <p>{repository.description || "No description avaliable."}</p>
-            <p>Language: {repository.language || "Not specified"}</p>
-            <Link to={`/projects/${repository.name}`}>View Details</Link>
-            {repository.homepage && (
-                <a href={repository.homepage} 
-                target="_blank"
-                rel="noopener noreferrer">
-                    Visit Website
-                </a>
+
+            {thumbnail && (
+                <img
+                    src={thumbnail}
+                    alt={`${repository.name} preview`}
+                    className="project-thumbnail"
+                />
             )}
-            <a href={repository.html_url} 
-            target="_blank" 
-            rel="noopener noreferrer">
-                View on GitHub
-            </a>
+
+            <h2>{repository.name}</h2>
+
+            <p>
+                {repository.description || "No description available."}
+            </p>
+
+            <p>
+                <strong>Primary Language:</strong>{" "}
+                {repository.language || "Not specified"}
+            </p>
+
+            <Link to={`/projects/${repository.name}`}>
+                View Details
+            </Link>
+
         </article>
-    )
+    );
+
 }
