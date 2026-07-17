@@ -6,22 +6,37 @@ export default function Home() {
             <main className="home-main">
                 {/* Hero Section */}
                 <section className="hero">
+                    <img className="about-image" src={profile} alt="LaTorya Hoyle-Sadler" />
                     <h1>LaTorya Hoyle-Sadler</h1>
                     <h2>Full Stack Software Engineer | Interactive Experience Developer</h2>
                     <p>
-                        I build web applications, games, and educational experiences using JavaScript, React, and full-stack technologies.
+                        I create interactive web applications, browser-based games, and educational experiences that combine technology, creativity, and meaningful user interactions.
+                        <br />
+                        Through ToyMind Interactive, I explore how technology can become more than a tool by creating experiences that encourage curiosity, learning, and discovery.
                     </p>
                 </section>
-                {/* About Me Section */}
-                <section className="about-me">
-                    <h2>About Me</h2>
-                    <div>
-                        <img className="about-image" src={profile} alt="LaTorya Hoyle-Sadler" />
-                    </div>
-                    <p>I am Full Stack Software Engineer passionate about creating experiences that encourage curiosity, learning, and connection.</p>
+                                {/* Featured Project Section */}
+                <section className="featured-project">
+                    <h2>Featured Project</h2>
+                    <h3>Mooncycle Ritual Garden Co. V2</h3>
+                    <video
+                        className="project-demo"
+                        src={mooncycleDemo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                        aria-label="Mooncycle Ritual Garden Co. Version 2 project demo video"
+                    >
+                        Your browser does not support the video tag.
+                    </video>
                     <p>
-                        Through ToyMind Interactive, I explore how technology can become more than a tool by creating applications and games that inspire people to pause, interact, and discover something meaningful.
+                        <p>
+                            Mooncycle Ritual Garden Co. Version 2, is an interactive wellness and gardening experience that combines responsive design, JavaScript functionality, and mini-games to create a meaningful digital experience centered around learning, exploration, and creativity.
+                        </p>
                     </p>
+                    <a href="https://iamlatorya.github.io/mooncycle-ritual-garden-co-v2/" target="_blank" rel="noopener noreferrer">View Project</a>
                 </section>
                 {/* Core Stack Section */}
                 <section className="stack">
@@ -43,32 +58,12 @@ export default function Home() {
                 <section className="metrics">
                     <h2>Development Highlights</h2>
                     <div>
-                        <p> <strong>10+</strong>
+                        <p> <strong>7+</strong>
                             <br />
                             Web Applications & Interactive Experiences</p>
                     </div>
                 </section>
-                {/* Featured Project Section */}
-                <section className="featured-project">
-                    <h2>Featured Project</h2>
-                    <h3>Mooncycle Ritual Garden Co. V2</h3>
-                    <video
-                        className="project-demo"
-                        src={mooncycleDemo}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="auto"
-                    >
-                        Your browser does not support the video tag.
-                    </video>
-                    <p>
-                    An interactive wellness and gardening experience that combines responsive design, JavaScript functionality, mini-games, and creative user experiences.
-                </p>
-                <a href="https://iamlatorya.github.io/mooncycle-ritual-garden-co-v2/" target="_blank" rel="noopener noreferrer">View Project</a>
-            </section>
-        </main >
+            </main >
         </>
     )
 }
