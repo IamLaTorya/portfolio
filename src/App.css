@@ -1,5 +1,5 @@
 .light {
-  background-color: #ffffff;
+  background-color: #c9c0c0;
   color: #1f2937;
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -11,12 +11,30 @@
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+.about-image {
+    width: 20%;
+    max-width: 700px;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 400px;
+
+}
+
 .project-thumbnail {
-  width: 45%;
-  max-width: 600px;
+  width: 70%;
+  max-width: 500px;
   height: auto;
-  border-radius: 200px;
-  background-color: #e5e7eb;
+  border-radius: 10px;
+  display: block;
+  margin: 20px auto;
+}
+.project-demo {
+  width: 95%;
+  max-width: 700px;
+  height: auto;
+  display: block;
+  border-radius: 40px;
   display: block;
   margin: 20px auto;
 }

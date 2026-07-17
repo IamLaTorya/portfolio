@@ -1,4 +1,4 @@
-import mooncycleGif from "../assets/mooncycle-demo.gif"
+import mooncycleDemo from "../assets/mooncycle-demo.mp4"
 import profile from "../assets/profile.jpg"
 export default function Home() {
     return (
@@ -15,8 +15,8 @@ export default function Home() {
                 {/* About Me Section */}
                 <section className="about-me">
                     <h2>About Me</h2>
-                    <div className="about-image">
-                        <img src={profile} alt="LaTorya Hoyle-Sadler" />
+                    <div>
+                        <img className="about-image" src={profile} alt="LaTorya Hoyle-Sadler" />
                     </div>
                     <p>I am Full Stack Software Engineer passionate about creating experiences that encourage curiosity, learning, and connection.</p>
                     <p>
@@ -52,13 +52,23 @@ export default function Home() {
                 <section className="featured-project">
                     <h2>Featured Project</h2>
                     <h3>Mooncycle Ritual Garden Co. V2</h3>
-                    <img src={mooncycleGif} alt="Mooncycle Ritual Garden Co. website preview" />
+                    <video
+                        className="project-demo"
+                        src={mooncycleDemo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                    >
+                        Your browser does not support the video tag.
+                    </video>
                     <p>
-                        An interactive wellness and gardening experience that combines responsive design, JavaScript functionality, mini-games, and creative user experiences.
-                    </p>
-                    <a href="https://iamlatorya.github.io/mooncycle-ritual-garden-co-v2/" target="_blank" rel="noopener noreferrer">View Project</a>
-                </section>
-            </main>
+                    An interactive wellness and gardening experience that combines responsive design, JavaScript functionality, mini-games, and creative user experiences.
+                </p>
+                <a href="https://iamlatorya.github.io/mooncycle-ritual-garden-co-v2/" target="_blank" rel="noopener noreferrer">View Project</a>
+            </section>
+        </main >
         </>
     )
 }

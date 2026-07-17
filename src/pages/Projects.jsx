@@ -16,7 +16,8 @@ export default function Projects() {
         "christmas-app2025",
         "typing-speed-app2025",
         "the-dynamic-task-manager",
-        "the-digital-timekeeper", "mooncycle-ritual-garden-co-v2", "mooncycle-ritual-garden-co",
+        "the-digital-timekeeper", 
+        "mooncycle-ritual-garden-co-v2", 
         "rps-mirror-of-fate-game"
     ];
     const filteredProjects = data.filter((repositories) => featuredProjects.includes(repositories.name));
