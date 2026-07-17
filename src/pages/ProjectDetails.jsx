@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import projectMedia from "../data/projectMedia";
 
@@ -84,6 +85,9 @@ export default function ProjectDetails() {
             >
                 View GitHub Repository
             </a>
+            <Link to="/projects" className="back-link">
+                &larr; Back to Projects
+            </Link>
         </div>
     );
 }
