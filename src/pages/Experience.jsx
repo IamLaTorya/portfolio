@@ -1,5 +1,6 @@
 import DeveloperDashboard from "../components/DeveloperDashboard";
 import EngineeringPhilosophy from "../components/EngineeringPhilosophy";
+import JourneyTimeline from "../components/JourneyTimeline";
 
 export default function Experience() {
     return (
@@ -9,6 +10,7 @@ export default function Experience() {
 
                 <DeveloperDashboard />
                 <EngineeringPhilosophy />
+                <JourneyTimeline />
             </main>
         </>
     );
