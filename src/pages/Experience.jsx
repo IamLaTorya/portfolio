@@ -1,3 +1,4 @@
+import AchievementHall from "../components/AchievementHall";
 import DeveloperDashboard from "../components/DeveloperDashboard";
 import EngineeringPhilosophy from "../components/EngineeringPhilosophy";
 import JourneyTimeline from "../components/JourneyTimeline";
@@ -13,6 +14,7 @@ export default function Experience() {
                 <EngineeringPhilosophy />
                 <JourneyTimeline />
                 <SkillTree />
+                <AchievementHall />
             </main>
         </>
     );
