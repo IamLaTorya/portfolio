@@ -7,21 +7,26 @@ export default function Contact() {
         email: "",
         message: ""
     });
-
+    // to create an error message for form validation.
     const [error, setError] = useState("");
+    // to create a success message after form submission.
     const [success, setSuccess] = useState(false);
-
-
+    // to create real-time validation for email input.
+    const [emailValid, setEmailValid] = useState(false);
+    // This function updates the form state whenever the user types.
     function handleChange(event) {
         const { name, value } = event.target;
-
+        // updates whichever field the user is typing in.
         setFormData({
             ...formData,
             [name]: value
         });
+        // This if statment performs live validation only for the email field
+        if (name === "email") {
+            setEmailValid(value.includes("@"));
+        }
     }
-
-
+    // This function handles the form submission
     function handleSubmit(event) {
         event.preventDefault();
 
@@ -48,6 +53,8 @@ export default function Contact() {
             email: "",
             message: ""
         });
+        // This resets the live email validation after submitting
+        setEmailValid(false);
     }
 
 
@@ -65,7 +72,7 @@ export default function Contact() {
             </section>
 
 
-            <form 
+            <form
                 className="contact-form"
                 onSubmit={handleSubmit}
             >
@@ -92,7 +99,14 @@ export default function Contact() {
                         placeholder="Enter your email"
                     />
                 </label>
-
+                        {/* Displays live email validation while typing. */}
+                        {formData.email && (
+                            <p>
+                                {emailValid
+                                ? "✅ Valid email"
+                                : "❌ Email must contain @"}
+                            </p>
+                        )}
 
                 <label>
                     Message
