@@ -7,30 +7,31 @@ export default function ProjectCard({
 
     return (
         <article className="project-card">
+            <div className="project-card-content">
+                {thumbnail && (
+                    <img
+                        src={thumbnail}
+                        alt={`${repository.name} preview`}
+                        className="project-thumbnail"
+                    />
+                )}
+                <div className="project-card-information">
+                    <h2>{repository.name}</h2>
 
-            {thumbnail && (
-                <img
-                    src={thumbnail}
-                    alt={`${repository.name} preview`}
-                    className="project-thumbnail"
-                />
-            )}
+                    <p>
+                        {repository.description || "No description available."}
+                    </p>
 
-            <h2>{repository.name}</h2>
+                    <p>
+                        <strong>Primary Language:</strong>{" "}
+                        {repository.language || "Not specified"}
+                    </p>
 
-            <p>
-                {repository.description || "No description available."}
-            </p>
-
-            <p>
-                <strong>Primary Language:</strong>{" "}
-                {repository.language || "Not specified"}
-            </p>
-
-            <Link to={`/projects/${repository.name}`}>
-                View Details
-            </Link>
-
+                    <Link to={`/projects/${repository.name}`} className="project-card-link">
+                        View Details
+                    </Link>
+                </div>
+            </div>
         </article>
     );
 

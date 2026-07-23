@@ -127,7 +127,7 @@ export default function Contact() {
                     </p>
                 )}
 
-                <button type="submit">
+                <button type="submit" className="submit-button">
                     Send Message
                 </button>
 

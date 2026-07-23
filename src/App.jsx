@@ -28,20 +28,22 @@ export default function App() {
     <>
       {/* every child component will inherit the mode */}
       <div className={isDarkMode ? "dark" : "light"}>
-        <Navigation
-          // tells Navigation the current theme
-          isDarkMode={isDarkMode}
-          // gives Navigation permission to change the theme
-          onToggleMode={handleToggleMode}
-        />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:id" element={<ProjectDetails />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <Footer />
+        <div className="app-wrapper">
+          <Navigation
+            // tells Navigation the current theme
+            isDarkMode={isDarkMode}
+            // gives Navigation permission to change the theme
+            onToggleMode={handleToggleMode}
+          />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:id" element={<ProjectDetails />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+        </div>
       </div>
     </>
   )

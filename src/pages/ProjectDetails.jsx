@@ -34,7 +34,7 @@ export default function ProjectDetails() {
     const media = projectMedia[repository.name];
 
     return (
-        <div>
+        <div className="project-details">
             <h1>{repository.name}</h1>
 
             {media?.demo && (
@@ -45,7 +45,8 @@ export default function ProjectDetails() {
                     loop
                     muted
                     playsInline
-                    preload="auto"
+                    preload="none"
+                    aria-label="Repository Projects Demo"
                 />
             )}
 
@@ -65,29 +66,30 @@ export default function ProjectDetails() {
                 <strong>Last Updated:</strong>{" "}
                 {new Date(repository.updated_at).toLocaleDateString()}
             </p>
+            <div className="project-links">
+                {repository.homepage && (
+                    <a
+                        href={repository.homepage}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Visit Live Website
+                    </a>
+                )}
 
-            {repository.homepage && (
+                <br />
+
                 <a
-                    href={repository.homepage}
+                    href={repository.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Visit Live Website
+                    View GitHub Repository
                 </a>
-            )}
-
-            <br />
-
-            <a
-                href={repository.html_url}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                View GitHub Repository
-            </a>
-            <Link to="/projects" className="back-link">
-                &larr; Back to Projects
-            </Link>
+                <Link to="/projects" className="back-link">
+                    &larr; Back to Projects
+                </Link>
+            </div>
         </div>
     );
 }

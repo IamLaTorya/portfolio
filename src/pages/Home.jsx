@@ -15,7 +15,7 @@ export default function Home() {
                         Through ToyMind Interactive, I explore how technology can become more than a tool by creating experiences that encourage curiosity, learning, and discovery.
                     </p>
                 </section>
-                                {/* Featured Project Section */}
+                {/* Featured Project Section */}
                 <section className="featured-project">
                     <h2>Featured Project</h2>
                     <h3>Mooncycle Ritual Garden Co. V2</h3>
@@ -26,22 +26,22 @@ export default function Home() {
                         loop
                         muted
                         playsInline
-                        preload="auto"
+                        preload="none"
                         aria-label="Mooncycle Ritual Garden Co. Version 2 project demo video"
                     >
                         Your browser does not support the video tag.
                     </video>
                     <p>
-                        <p>
-                            Mooncycle Ritual Garden Co. Version 2, is an interactive wellness and gardening experience that combines responsive design, JavaScript functionality, and mini-games to create a meaningful digital experience centered around learning, exploration, and creativity.
-                        </p>
+                        Mooncycle Ritual Garden Co. Version 2, is an interactive wellness and gardening experience that combines responsive design, JavaScript functionality, and mini-games to create a meaningful digital experience centered around learning, exploration, and creativity.
                     </p>
-                    <a href="https://iamlatorya.github.io/mooncycle-ritual-garden-co-v2/" target="_blank" rel="noopener noreferrer">View Project</a>
+                    <a href="https://iamlatorya.github.io/mooncycle-ritual-garden-co-v2/" target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label="View Mooncycle Ritual Garden Co. live site">View Project</a>
                 </section>
                 {/* Core Stack Section */}
                 <section className="stack">
                     <h2>Core Stack</h2>
-                    <ul className="stack=list">
+                    <ul className="stack-list">
                         <li>HTML</li>
                         <li>CSS</li>
                         <li>JavaScript</li>
