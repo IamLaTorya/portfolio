@@ -1,16 +1,58 @@
-# React + Vite
+# LaTorya Hoyle-Sadler | ToyMind Interactive Developer Portfolio
+## Overview
+This project is a responsive Single Page Application (SPA) built with React and Vite to showcase my software engineering projects, technical growth, and interactive development philosophy. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Features
+------
+- React Router single-page navigation
+- Dynamic GitHub API project gallery
+- Searchable projects
+- Dynamic project detail pages using `useParams()`
+- Custom `useFetch`
+- Loading and error state management 
+- Interactive Experience page featuring:
+    - Developer Journey
+    - Skill Tree
+    - ToyMind Interactive Achievement Hall
+- Controlled Contact form with real-time validation
+- Dark/Light mode toggle
+- Responsive design
 
-Currently, two official plugins are available:
+### Technologies Used
+------
+- React
+- Vite
+- JavaScript
+- HTML5
+- CSS3
+- React Router DOM
+- GitHub REST API
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Architecture
+------
+#### Data Flow
+GitHub API → `useFetch` → Projects → Project Cards → Project Details (`/projects/:id`)
 
-## React Compiler
+#### Component Structure
+- `components/` - reusable UI
+- `pages/` - application views
+- `hooks/` - custom hooks
+- `data/` - project data
+- `assets/` - images and media
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+#### Hook Cycle
+The custom `useFetch` hook uses `useEffect()` with a dependency array to fetch data while preventing infinite render loops. React state (`useState`) manages application state including loading, errors, search filtering, dark mode, and controlled form inputs.
 
-## Expanding the ESLint configuration
+### Self-Audit
+------
+- ✅ Zero console errors
+- ✅ Zero infinite re-render loops
+- ✅ React Router navigation without page reloads
+- ✅ Responsive layouts
+- ✅ Real-time form validation
+- ✅ Production build completed successfully
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Live Demo
+<!-- Live Site: will go here -->
+GitHub: [Portfolio Repository](https://github.com/IamLaTorya/portfolio)
+

@@ -13,6 +13,8 @@ export default function Contact() {
     const [success, setSuccess] = useState(false);
     // to create real-time validation for email input.
     const [emailValid, setEmailValid] = useState(false);
+    // Regular expression used to validate a basic email format.
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
     // This function updates the form state whenever the user types.
     function handleChange(event) {
         const { name, value } = event.target;
@@ -21,9 +23,9 @@ export default function Contact() {
             ...formData,
             [name]: value
         });
-        // This if statment performs live validation only for the email field
+        // This if statment performs live validation using an email pattern.
         if (name === "email") {
-            setEmailValid(value.includes("@"));
+            setEmailValid(emailPattern.test(value));
         }
     }
     // This function handles the form submission
@@ -33,18 +35,16 @@ export default function Contact() {
         setError("");
         setSuccess(false);
 
-
         if (!formData.name || !formData.email || !formData.message) {
             setError("Please complete all fields.");
             return;
         }
 
-
-        if (!formData.email.includes("@")) {
+        // Prevents invalid email formats from being submitted.
+        if (!emailPattern.test(formData.email)) {
             setError("Please enter a valid email address.");
             return;
         }
-
 
         setSuccess(true);
 
@@ -56,7 +56,6 @@ export default function Contact() {
         // This resets the live email validation after submitting
         setEmailValid(false);
     }
-
 
     return (
         <main className="contact-page">
@@ -70,7 +69,6 @@ export default function Contact() {
                 </p>
 
             </section>
-
 
             <form
                 className="contact-form"
@@ -88,7 +86,6 @@ export default function Contact() {
                     />
                 </label>
 
-
                 <label>
                     Email
                     <input
@@ -99,14 +96,14 @@ export default function Contact() {
                         placeholder="Enter your email"
                     />
                 </label>
-                        {/* Displays live email validation while typing. */}
-                        {formData.email && (
-                            <p>
-                                {emailValid
-                                ? "✅ Valid email"
-                                : "❌ Email must contain @"}
-                            </p>
-                        )}
+                {/* Displays live email validation while typing. */}
+                {formData.email && (
+                    <p className={emailValid ? "valid" : "invalid"}>
+                        {emailValid
+                            ? "✅ Valid email address."
+                            : "❌ Enter a valid email (example@email.com)."}
+                    </p>
+                )}
 
                 <label>
                     Message
@@ -118,20 +115,17 @@ export default function Contact() {
                     />
                 </label>
 
-
                 {error && (
                     <p className="error-message">
                         ❌ {error}
                     </p>
                 )}
 
-
                 {success && (
                     <p className="success-message">
                         Thank you for reaching out! Connection Established ✅
                     </p>
                 )}
-
 
                 <button type="submit">
                     Send Message
