@@ -52,6 +52,11 @@ const achievements = [
         image: cssBadge
     },
     {
+        title: "JavaScript Explorer",
+        type: "Badge",
+        image: javascriptBadge
+    },
+    {
         title: "AI Explorer Collection",
         type: "Badge Collection",
         images: [
@@ -64,11 +69,6 @@ const achievements = [
             googleAiBadge7
         ]
     },
-    {
-        title: "JavaScript Explorer",
-        type: "Badge",
-        image: javascriptBadge
-    }
 ];
 
 export default achievements;

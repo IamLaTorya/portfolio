@@ -49,18 +49,7 @@ section {
   margin: 1rem 0;
 }
 
-/* FULL SCREEN BACKGROUND */
-.dark,
-.light {
-  background-color: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  width: 100%;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 /* Home page */
-
 /* Hero Section — Warm, centered, inviting                 */
 .about-image {
   max-width: 700px;
@@ -188,20 +177,21 @@ section {
 
 /* Project page sections */
 /* Project Card — Newspaper Article Layout                 */
-.project-card {
+.project-card,
+.project-demo {
   background: var(--code-bg);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 0.75rem;              /* reduced padding */
+  padding: 0.75rem;
   text-align: center;
   box-shadow: var(--shadow);
-  margin-bottom: 1rem;           /* reduced spacing */
+  margin-bottom: 1rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-3px);
-  box-shadow: rgba(0,0,0,0.12) 0 10px 18px;
+  transform: translateY(-4px);
+  box-shadow: rgba(0, 0, 0, 0.12) 0 10px 18px;
 }
 
 /* Text Styling                                             */
@@ -218,13 +208,19 @@ section {
 
 .project-card-image,
 .project-thumbnail {
-  max-width: 500px;              /* uniform width */
-  height: 300px;                 /* uniform height */
-  object-fit: contain;           /* NO cropping */
-  background: var(--code-bg);    /* subtle frame */
+  max-width: 500px;
+  /* uniform width */
+  height: 300px;
+  /* uniform height */
+  object-fit: contain;
+  /* NO cropping */
+  background: var(--code-bg);
+  /* subtle frame */
   border-radius: 10px;
-  margin: 0.5rem auto;           /* tighter spacing */
-  padding: 0.25rem;              /* tiny buffer */
+  margin: 0.5rem auto;
+  /* tighter spacing */
+  padding: 0.25rem;
+  /* tiny buffer */
 }
 
 .project-demo {
@@ -244,22 +240,6 @@ section {
   gap: 2rem;
   width: 100%;
   margin-top: 2rem;
-}
-
-/* Project Card — Safe, responsive, accessible             */
-.project-card,
-.project-demo {
-  background: var(--code-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: var(--shadow);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: rgba(0, 0, 0, 0.12) 0 12px 20px;
 }
 
 .project-details {
@@ -285,7 +265,7 @@ section {
 button,
 .project-card-link {
   display: inline-block;
-  padding: 0.25rem .35rem;
+  padding: 0.65rem 1.2rem;
   background: var(--accent);
   color: var(--text-h);
   border-radius: 8px;
@@ -315,12 +295,216 @@ button:hover,
 }
 
 /* Experience page */
+/* Centers all experience content */
+.experience-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
 
-.achievement-image,
-.badge-collection {
-  max-width: 500px;
-  margin: 1rem auto;
+.achievement-hall {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  color: var(--text-h);
+  max-width: 900px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+/* Main headings */
+.achievement-hall h2,
+.journey-timeline h2 {
+  margin-bottom: 1rem;
+}
+
+.journey-timeline {
+  background: var(--code-bg);
+  border-left: 6px solid var(--accent);
   border-radius: 12px;
+  text-align: center;
+  padding: 1rem;
+  max-width: 900px;
+  margin: 3rem auto;
+}
+
+.journey-card {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.journey-button {
+  width: 100%;
+  padding: 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.journey-button:hover {
+  background: var(--accent-bg);
+}
+
+.journey-details {
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Skill badges */
+.skill-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.skill-badge {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: .75rem;
+  text-align: center;
+}
+
+/* Achievement Hall entrance */
+.achievement-hall button {
+  display: block;
+  margin: 1.5rem auto;
+}
+
+/* Open Hall Button */
+
+.achievement-open-button {
+
+  padding: 1rem 1.5rem;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: var(--accent);
+
+  color: var(--text-h);
+
+  cursor: pointer;
+
+}
+
+
+
+/* Modal Background */
+
+.achievement-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, .65);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 1rem;
+
+  z-index: 1000;
+
+}
+
+
+
+/* Modal Window */
+
+.achievement-modal {
+
+  width: 100%;
+
+  max-width: 1000px;
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: var(--code-bg);
+
+  border-radius: 20px;
+
+  padding: 2rem;
+
+}
+
+
+
+/* Close Button */
+
+.close-button {
+
+  float: right;
+
+}
+
+
+
+/* Expand Buttons */
+
+.achievement-section-button {
+
+  width: 100%;
+
+  margin: 1rem 0;
+
+  padding: 1rem;
+
+  text-align: left;
+
+  border: none;
+
+  background: var(--accent-bg);
+
+  color: var(--text);
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+}
+
+/* Grid */
+.achievement-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card */
+.achievement-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+/* Badge collection */
+.badge-collection {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
 }
 
 /* Contact page */
@@ -348,10 +532,12 @@ input:focus,
 textarea:focus {
   outline: 2px solid var(--accent);
 }
+
 form button {
   width: fit-content;
   padding: 0.5rem 1rem;
-  margin: 0.5rem auto 0 auto; /* centers the button */
+  margin: 0.5rem auto 0 auto;
+  /* centers the button */
 }
 
 
@@ -402,10 +588,14 @@ footer {
   .project-card {
     padding: 1rem;
   }
-  .project-card-image, .project-thumbnail {
+
+  .project-card-image,
+  .project-thumbnail {
     max-width: 100%;
-    height: auto; /*natural height on mobile*/
+    height: auto;
+    /*natural height on mobile*/
   }
+
   .project-card-link {
     width: 100%;
     max-width: 280px;
@@ -421,4 +611,17 @@ footer {
     width: 100%;
     max-width: 100px;
   }
+
+  .achievement-hall {
+    padding: 1.25rem;
+  }
+
+  .badge-collection {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  }
+
+  .skill-tree {
+    padding: 1.25rem;
+  }
+
 }

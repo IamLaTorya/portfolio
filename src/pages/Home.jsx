@@ -1,12 +1,10 @@
 import mooncycleDemo from "../assets/mooncycle-demo.mp4"
-import profile from "../assets/profile.jpg"
 export default function Home() {
     return (
         <>
             <main className="home-main">
                 {/* Hero Section */}
                 <section className="hero">
-                    <img className="about-image" src={profile} alt="LaTorya Hoyle-Sadler" />
                     <h1>LaTorya Hoyle-Sadler</h1>
                     <h2>Full Stack Software Engineer | Interactive Experience Developer</h2>
                     <p>

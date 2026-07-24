@@ -1,101 +1,236 @@
 import { useState } from "react";
 import achievements from "../data/achievements";
+
+
+// Separates certifications from badges.
 const certifications = achievements.filter(
     achievement => achievement.type === "Certification"
 );
 
+
+// Separates individual badges and collections.
 const badges = achievements.filter(
-    achievement => achievement.type === "Badge" || achievement.type === "Badge Collection"
+    achievement =>
+        achievement.type === "Badge" ||
+        achievement.type === "Badge Collection"
 );
 
 export default function AchievementHall() {
+    // Controls whether modal is visible.
     const [isOpen, setIsOpen] = useState(false);
+
+    // Controls certification section.
     const [showCertifications, setShowCertifications] = useState(false);
+
+    // Controls badge section.
     const [showBadges, setShowBadges] = useState(false);
 
-    function handleOpenHall() {
-        setIsOpen(true);
-    }
-
-    function handleCloseHall() {
-        setIsOpen(false);
-    }
-
     return (
+
         <section className="achievement-hall">
 
-            <h2>🏛️ ToyMind Interactive Achievement Hall</h2>
+            <h2>
+                🏛️ ToyMind Interactive Achievement Hall
+            </h2>
+
 
             <p>
-                Explore my certifications, earned badges, and future quests.
+                Explore certifications, earned badges, and future quests.
             </p>
 
-            <button onClick={handleOpenHall}>
-                Enter Achievement Hall
+
+
+            <button
+                className="achievement-open-button"
+                onClick={() => setIsOpen(true)}
+            >
+
+                Enter Achievement Hall ✨
+
             </button>
 
+
+
+
             {isOpen && (
-                <div className="achievement-modal">
 
-                    <button onClick={handleCloseHall}>
-                        Close
-                    </button>
-                    <h3 onClick={() => setShowCertifications(!showCertifications)}>
-                        {showCertifications ? "▼" : "▶"} 🏆 Trophy Room
-                    </h3>
-                    {showCertifications &&
-                        certifications.map((achievement) => (
-                            <div
-                                key={achievement.title}
-                                className="achievement-card"
-                            >
-                                {/* Certificate images */}
-                                {achievement.image && (
-                                    <img
-                                        src={achievement.image}
-                                        alt={achievement.title}
-                                        className="achievement-image"
-                                    />
-                                )}
+                <div className="achievement-overlay">
+
+
+                    <div className="achievement-modal">
+
+
+                        <button
+                            className="close-button"
+                            onClick={() => setIsOpen(false)}
+                        >
+
+                            ✕ Close
+
+                        </button>
+
+
+
+                        <h2>
+                            🏆 Achievement Hall
+                        </h2>
+
+
+
+
+                        {/* Certification Section */}
+
+                        <button
+                            className="achievement-section-button"
+                            onClick={() =>
+                                setShowCertifications(!showCertifications)
+                            }
+                        >
+
+                            {showCertifications ? "▼" : "▶"}
+
+                            🏆 Trophy Room
+
+                        </button>
+
+
+
+
+                        {showCertifications && (
+
+                            <div className="achievement-grid">
+
+
+                                {certifications.map((achievement) => (
+
+
+                                    <article
+                                        className="achievement-card"
+                                        key={achievement.title}
+                                    >
+
+
+                                        <img
+                                            src={achievement.image}
+                                            alt={achievement.title}
+                                        />
+
+
+                                        <p>
+                                            {achievement.title}
+                                        </p>
+
+
+                                    </article>
+
+
+                                ))}
+
+
                             </div>
-                        ))
-                    }
-                    <h3 onClick={() => setShowBadges(!showBadges)}>
-                        {showBadges ? "▼" : "▶"} 🎮 Badge Gallery
-                    </h3>
 
-                    {showBadges &&
-                        badges.map((achievement) => (
-                            <div
-                                key={achievement.title}
-                                className="achievement-card"
-                            >
-                                {/* Single badge image */}
-                                {achievement.image ? (
-                                    <img
-                                        src={achievement.image}
-                                        alt={achievement.title}
-                                        className="achievement-image"
-                                    />
+                        )}
 
-                                ) : achievement.images && (
-                                    <div className="badge-collection">
-                                        {/* Badge collection */}
-                                        {achievement.images.map((image, index) => (
+
+
+
+
+                        {/* Badge Section */}
+
+                        <button
+                            className="achievement-section-button"
+                            onClick={() =>
+                                setShowBadges(!showBadges)
+                            }
+                        >
+
+                            {showBadges ? "▼" : "▶"}
+
+                            🎮 Badge Gallery
+
+                        </button>
+
+
+
+
+
+                        {showBadges && (
+
+                            <div className="achievement-grid">
+
+
+                                {badges.map((achievement) => (
+
+
+                                    <article
+                                        className="achievement-card"
+                                        key={achievement.title}
+                                    >
+
+
+                                        <h3>
+                                            {achievement.title}
+                                        </h3>
+
+
+
+                                        {/* Single badge */}
+
+                                        {achievement.image && (
+
                                             <img
-                                                key={index}
-                                                src={image}
-                                                alt={`${achievement.title} badge ${index + 1}`}
-                                                className="achievement-image"
+                                                src={achievement.image}
+                                                alt={achievement.title}
                                             />
-                                        ))}
-                                    </div>
-                                )}
+
+                                        )}
+
+                                        {/* Badge collection */}
+
+                                        {achievement.images && (
+
+                                            <div className="badge-collection">
+
+
+                                                {achievement.images.map(
+                                                    (image, index) => (
+
+                                                        <img
+                                                            key={index}
+                                                            src={image}
+                                                            alt={`${achievement.title} badge ${index + 1}`}
+                                                        />
+
+                                                    ))}
+
+
+                                            </div>
+
+                                        )}
+
+
+                                    </article>
+
+
+                                ))}
+
+
                             </div>
-                        ))
-                    }
+
+                        )}
+
+
+
+                    </div>
+
+
                 </div>
+
             )}
+
+
         </section>
+
     );
+
 }

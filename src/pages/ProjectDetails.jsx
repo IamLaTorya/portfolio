@@ -72,6 +72,7 @@ export default function ProjectDetails() {
                         href={repository.homepage}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Repository live website"
                     >
                         Visit Live Website
                     </a>
@@ -83,6 +84,7 @@ export default function ProjectDetails() {
                     href={repository.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="GitHub repository link "
                 >
                     View GitHub Repository
                 </a>

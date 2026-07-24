@@ -1,43 +1,121 @@
-export default function JourneyTimeline() {
+import { useState } from "react";
+
+import journeyLevels from "../data/journeyLevels";
+
+
+export default function JourneyTimeline(){
+
+    // Tracks which level is expanded.
+    const [openLevel,setOpenLevel] = useState(null);
+
+
+
+    // Opens or closes timeline cards.
+    function handleToggle(level){
+
+        setOpenLevel(
+            openLevel === level
+            ? null
+            : level
+        );
+
+    }
+
+
+
     return (
-        <section>
-            <h2>Developer Journey</h2>
 
-            <div>
-                <h3>💭 Level 1: Curiosity</h3>
-                <p>
-                    Started exploring how technology can create
-                    meaningful experiences.
-                </p>
-            </div>
+        <section className="journey-timeline">
 
 
-            <div>
-                <h3>📚 Level 2: Learning</h3>
-                <p>
-                    Built foundations in HTML, CSS, JavaScript,
-                    and responsive design.
-                </p>
-            </div>
+            <h2>
+                🚀 Developer Journey
+            </h2>
 
 
-            <div>
-                <h3>🏗️ Level 3: Building</h3>
-                <p>
-                    Created interactive applications and games
-                    using JavaScript and React.
-                </p>
-            </div>
+
+            {journeyLevels.map((journey)=>(
 
 
-            <div>
-                <h3>🚀 Level 4: Full Stack Expansion</h3>
-                <p>
-                    Developing backend systems using Node.js,
-                    Express, databases, and APIs.
-                </p>
-            </div>
+                <article 
+                    className="journey-card"
+                    key={journey.level}
+                >
+
+
+                    <button
+                        className="journey-button"
+                        onClick={() => handleToggle(journey.level)}
+                    >
+
+                        {openLevel === journey.level
+                        ? "▼"
+                        : "▶"}
+
+                        {journey.level}: {journey.title}
+
+                    </button>
+
+
+
+
+                    {openLevel === journey.level && (
+
+                        <div className="journey-details">
+
+
+                            <p>
+                                {journey.description}
+                            </p>
+
+
+
+                            <h3>
+                                Technical Checkpoints
+                            </h3>
+
+
+
+                            <div className="skill-grid">
+
+
+                                {journey.skills.map((skill)=>(
+
+                                    <div
+                                        className="skill-badge"
+                                        key={skill.name}
+                                    >
+
+                                        {skill.status === "complete" && "✅"}
+
+                                        {skill.status === "powering" && "⚡"}
+
+                                        {skill.status === "locked" && "🔒"}
+
+
+                                        {skill.name}
+
+                                    </div>
+
+                                ))}
+
+
+                            </div>
+
+
+                        </div>
+
+                    )}
+
+
+                </article>
+
+
+            ))}
+
 
         </section>
+
     );
+
 }
